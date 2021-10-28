@@ -2,19 +2,19 @@ package by.javacourse.task3.entity;
 
 import java.util.List;
 
-public class Medicin extends Medicins {
+public class Medicine extends MedProduct {
 
 	private String codeCAS;
 	private String activeSubstance;
 	private boolean needRecipe;
 
-	public Medicin() {
+	public Medicine() {
 		super();
 	}
 
-	public Medicin(String medicationId, boolean outOfProdaction, String name, String pharm, GroupATC group,
+	public Medicine(String medProductId, boolean outOfProdaction, String name, String pharm, GroupATC group,
 			List<String> analogs, Version version, String codeCAS, String activeSubstance, boolean needRecipe) {
-		super(medicationId, outOfProdaction, name, pharm, group, analogs, version);
+		super(medProductId, outOfProdaction, name, pharm, group, analogs, version);
 		this.codeCAS = codeCAS;
 		this.activeSubstance = activeSubstance;
 		this.needRecipe = needRecipe;
@@ -65,7 +65,7 @@ public class Medicin extends Medicins {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		Medicin other = (Medicin) obj;
+		Medicine other = (Medicine) obj;
 		if (activeSubstance == null) {
 			if (other.activeSubstance != null) {
 				return false;
@@ -89,7 +89,7 @@ public class Medicin extends Medicins {
 	@Override
 	public String toString() {
 		return new StringBuilder()
-				.append("Medicin [")
+				.append("Medicine [")
 				.append(super.toString())
 				.append(" codeCAS=")
 				.append(codeCAS)
@@ -100,5 +100,4 @@ public class Medicin extends Medicins {
 				.append("]")
 				.toString();
 	}
-
 }

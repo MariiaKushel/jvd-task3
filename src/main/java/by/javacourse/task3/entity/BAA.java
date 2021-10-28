@@ -2,17 +2,17 @@ package by.javacourse.task3.entity;
 
 import java.util.List;
 
-public class BAA extends Medicins {
+public class Baa extends MedProduct {
 
 	private List<String> composition;
 
-	public BAA() {
+	public Baa() {
 		super();
 	}
 
-	public BAA(String medicationId, boolean outOfProdaction, String name, String pharm, GroupATC group,
+	public Baa(String medProductId, boolean outOfProdaction, String name, String pharm, GroupATC group,
 			List<String> analogs, Version version, List<String> composition) {
-		super(medicationId, outOfProdaction, name, pharm, group, analogs, version);
+		super(medProductId, outOfProdaction, name, pharm, group, analogs, version);
 		this.composition = composition;
 	}
 
@@ -43,7 +43,7 @@ public class BAA extends Medicins {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		BAA other = (BAA) obj;
+		Baa other = (Baa) obj;
 		if (composition == null) {
 			if (other.composition != null) {
 				return false;

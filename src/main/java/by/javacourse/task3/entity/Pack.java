@@ -12,4 +12,11 @@ public enum Pack {
 	AEROSOL,
 	DROP;
 
+	private static final char UNDERSCORE = '_';
+    private static final char HYPHEN = '-';
+    
+    public static Pack valueOfXmlContent(String content) {
+    	return Pack.valueOf(content.toUpperCase().replace(HYPHEN, UNDERSCORE));
+    }
+	
 }

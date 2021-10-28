@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <c:med-catalog
-	xmlns:c="http://www.javacourse.by/med-product"
+	xmlns:c="http://www.javacourse.by/med-product/test"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.javacourse.by/med-product src/main/resourcec/data/schema.xsd ">
+	xsi:schemaLocation="http://www.javacourse.by/med-product src/test/resources/testData/schema.xsd ">
 
-	<medicine id="m1" >
+	<c:medicine id="m1" >
 		<name>Ibuprofen</name>
-		<pharm>Med Company</pharm>
+		<pharm>Med Company</pharm
 		<group>group-m</group>
 		<analogs>Paracetomol Noshpa</analogs>
 		<version>
@@ -20,11 +20,11 @@
 		<code-cas>1235-67-8</code-cas>
 		<active-substance>obezbolin</active-substance>
 		<need-recipe>false</need-recipe>
-	</medicine>
+	</c:medicine>
 
-	<baa id="m2" out-of-prodaction="true">
+	<c:baa id="m2" out-of-prodaction="true">
 		<name>Health helper</name>
-		<pharm>Med Company</pharm>
+		<pharm>Other Med Company</pharm>
 		<group>group-a</group>
 		<analogs>Gooder Weller</analogs>
 		<version>
@@ -36,6 +36,6 @@
 			<dosage>100ml</dosage>
 		</version>
 		<composition>Mentol Oil</composition>
-	</baa>
+	</c:baa>
 
 </c:med-catalog>

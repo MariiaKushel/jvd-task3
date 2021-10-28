@@ -15,7 +15,14 @@ public enum GroupATC {
 	GROUP_P,
 	GROUP_R,
 	GROUP_S,
-	GROUP_V
+	GROUP_V;
+	
+	private static final char UNDERSCORE = '_';
+    private static final char HYPHEN = '-';
+    
+    public static GroupATC valueOfXmlContent(String content) {
+    	return GroupATC.valueOf(content.toUpperCase().replace(HYPHEN, UNDERSCORE));
+    }
 	
 	//Код A: Препараты, влияющие на пищеварительный тракт и обмен веществ
 	//Код B: Препараты, влияющие на кроветворение и кровь

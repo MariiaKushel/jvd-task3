@@ -14,14 +14,23 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
 
-import by.javacourse.task3.builder.MedicinsErrorHandler;
-import by.javacourse.task3.exeption.MedicinsException;
+import by.javacourse.task3.builder.MedProductErrorHandler;
+import by.javacourse.task3.exeption.MedProductException;
 
-public class XMLMedicinsValidator {
+public class XmlMedProductValidator {
+
+	private static final XmlMedProductValidator instance = new XmlMedProductValidator();
 
 	static Logger logger = LogManager.getLogger();
 
-	public static boolean validateXML(String xmlPath, String schemaPath) throws MedicinsException {
+	private XmlMedProductValidator() {
+	}
+
+	public static XmlMedProductValidator getInstance() {
+		return instance;
+	}
+
+	public static boolean validateXml(String xmlPath, String schemaPath) throws MedProductException {
 
 		logger.info("start");
 
@@ -34,14 +43,14 @@ public class XMLMedicinsValidator {
 			Validator validator = schema.newValidator();
 			Source source = new StreamSource(xmlPath);
 
-			validator.setErrorHandler(new MedicinsErrorHandler());
+			validator.setErrorHandler(new MedProductErrorHandler());
 			validator.validate(source);
 
 		} catch (IOException ioEx) {
-			logger.info("IO exception");
-			throw new MedicinsException(ioEx);
+			logger.info("IO exception during work with files " + xmlPath + "; " + schemaPath);
+			throw new MedProductException(ioEx);
 		} catch (SAXException saxEx) {
-			logger.info("XML " +  " is not valid.");
+			logger.info("Xml file " + xmlPath + " is not valid.");
 			return false;
 		}
 

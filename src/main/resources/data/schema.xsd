@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://www.javacourse.by/medicins"
-	xmlns:c="http://www.javacourse.by/medicins">
+	targetNamespace="http://www.javacourse.by/med-product"
+	xmlns:c="http://www.javacourse.by/med-product">
 
-	<complexType name="medicins">
+	<element name="med-product" type="c:med-product" abstract="true"></element>
+	<element name="medicine" type="c:medicine" substitutionGroup="c:med-product"></element>
+	<element name="baa" type="c:baa" substitutionGroup="c:med-product"></element>
+
+	<element name="med-catalog">
+		<complexType>
+			<sequence>
+				<element ref="c:med-product" maxOccurs="unbounded"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="med-product">
 		<sequence>
 			<element name="name" type="string"></element>
 			<element name="pharm" type="string"></element>
@@ -11,13 +23,14 @@
 			<element name="analogs" type="c:list-string"></element>
 			<element name="version" type="c:version"></element>
 		</sequence>
-		<attribute name="id" type="c:medicins-id" use="required" />
-		<attribute name="out-of-prodaction" type="boolean" use="optional" default="false" />
+		<attribute name="id" type="c:med-product-id" use="required" />
+		<attribute name="out-of-prodaction" type="boolean"
+			use="optional" default="false" />
 	</complexType>
 
-	<complexType name="medicin">
+	<complexType name="medicine">
 		<complexContent>
-			<extension base="c:medicins">
+			<extension base="c:med-product">
 				<sequence>
 					<element name="code-cas" type="c:code-cas" />
 					<element name="active-substance" type="string" />
@@ -29,7 +42,7 @@
 
 	<complexType name="baa">
 		<complexContent>
-			<extension base="c:medicins">
+			<extension base="c:med-product">
 				<sequence>
 					<element name="composition" type="c:list-string" />
 				</sequence>
@@ -44,6 +57,7 @@
 			<element name="data-from" type="gYearMonth"></element>
 			<element name="data-to" type="gYearMonth"></element>
 			<element name="pack" type="c:pack"></element>
+			<element name="dosage" type="c:dosage"></element>
 		</sequence>
 	</complexType>
 
@@ -87,7 +101,7 @@
 			<enumeration value="Powder" />
 			<enumeration value="Ointment" />
 			<enumeration value="Gel" />
-			<enumeration value="Solution For Injection" />
+			<enumeration value="Solution for injection" />
 			<enumeration value="Mixture" />
 			<enumeration value="Aerosol" />
 			<enumeration value="Drop" />
@@ -100,7 +114,13 @@
 		</restriction>
 	</simpleType>
 
-	<simpleType name="medicins-id">
+	<simpleType name="dosage">
+		<restriction base="string">
+			<pattern value="\d{1,}((ml)|(mg))" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="med-product-id">
 		<restriction base="ID">
 			<pattern value="\w{1,10}" />
 		</restriction>
@@ -109,19 +129,5 @@
 	<simpleType name="list-string">
 		<list itemType="string" />
 	</simpleType>
-
-	<element name="medicins" type="c:medicins" abstract="true"></element>
-	<element name="medicin" type="c:medicin"
-		substitutionGroup="c:medicins"></element>
-	<element name="baa" type="c:baa"
-		substitutionGroup="c:medicins"></element>
-
-	<element name="catalog">
-		<complexType>
-			<sequence>
-				<element ref="c:medicins" maxOccurs="unbounded"></element>
-			</sequence>
-		</complexType>
-	</element>
 
 </schema>

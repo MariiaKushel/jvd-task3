@@ -6,23 +6,24 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-public class MedicinsErrorHandler implements ErrorHandler{
+public class MedProductErrorHandler implements ErrorHandler{
 	
 	static Logger logger = LogManager.getLogger();
 
 	public void warning(SAXParseException exception) throws SAXException {
 		logger.warn(exception.getLineNumber() + " : " + exception.getColumnNumber() +" - " + exception.getMessage());
-		throw new SAXException(exception);
+		//если добавить валидация проходить правильно
+		//throw new SAXException(exception); 
 	}
 
 	public void error(SAXParseException exception) throws SAXException {
 		logger.error(exception.getLineNumber() + " : " + exception.getColumnNumber() +" - " + exception.getMessage());
-		throw new SAXException(exception);
+		//throw new SAXException(exception);
 	}
 
 	public void fatalError(SAXParseException exception) throws SAXException {
 		logger.fatal(exception.getLineNumber() + " : " + exception.getColumnNumber() +" - " + exception.getMessage());
-		throw new SAXException(exception);
+		//throw new SAXException(exception);
 	}
 	
 }
