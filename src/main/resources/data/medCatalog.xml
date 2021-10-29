@@ -37,5 +37,57 @@
 		</version>
 		<composition>Mentol Oil</composition>
 	</baa>
+	
+	<medicin out-of-prodaction="false" id="m3" >
+		<name>Noshpa</name>
+		<pharm>Pharm Company</pharm>
+		<group>group-m</group>
+		<analogs>Ibuprofen Paracetomol</analogs>
+		<version>
+			<country>Russia</country>
+			<certificate>8598RR857-53.639.38E</certificate>
+			<data-from>2021-05</data-from>
+			<data-to>2023-05</data-to>
+			<pack>Pill</pack>
+			<dosage>50mg</dosage>
+		</version>
+		<code-cas>1235-67-8</code-cas>
+		<active-substance>obezbolin</active-substance>
+		<need-recipe>false</need-recipe>
+	</medicin>
+	
+	<medicin id="m4" >
+		<name>Paracetomol</name>
+		<pharm>Pharm Company</pharm>
+		<group>group-m</group>
+		<analogs>Ibuprofen Noshpa</analogs>
+		<version>
+			<country>Poland</country>
+			<certificate>185-968.FF.4587RE</certificate>
+			<data-from>2020-08</data-from>
+			<data-to>2022-08</data-to>
+			<pack>Pill</pack>
+			<dosage>50mg</dosage>
+		</version>
+		<code-cas>1235-67-8</code-cas>
+		<active-substance>obezbolin</active-substance>
+		<need-recipe>false</need-recipe>
+	</medicin>
+	
+	<baa id="m5">
+		<name>Romashka</name>
+		<pharm>ProdTorg</pharm>
+		<group>group-s</group>
+		<analogs>Lavanda</analogs>
+		<version>
+			<country>Belarus</country>
+			<certificate>1885-9657</certificate>
+			<data-from>2021-02</data-from>
+			<data-to>2024-02</data-to>
+			<pack>Powder</pack>
+			<dosage>100mg</dosage>
+		</version>
+		<composition>Romashka</composition>
+	</baa>
 
 </c:med-catalog>
