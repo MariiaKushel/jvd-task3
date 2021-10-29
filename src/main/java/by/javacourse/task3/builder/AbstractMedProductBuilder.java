@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import by.javacourse.task3.entity.MedProduct;
+import by.javacourse.task3.exeption.MedProductException;
 
 public abstract class AbstractMedProductBuilder {
 	
@@ -25,5 +26,5 @@ public abstract class AbstractMedProductBuilder {
 		this.medCatalog = medCatalog;
 	}
 	
-	public abstract void buildMedCatalog (String xmlPath);
+	public abstract void buildMedCatalog (String xmlPath) throws MedProductException;
 }

@@ -16,6 +16,7 @@ import by.javacourse.task3.entity.GroupATC;
 import by.javacourse.task3.entity.Medicine;
 import by.javacourse.task3.entity.MedProduct;
 import by.javacourse.task3.entity.Pack;
+import by.javacourse.task3.exeption.MedProductException;
 
 public class MedProductDomBuilderTest {
 
@@ -27,7 +28,7 @@ public class MedProductDomBuilderTest {
 	}
 
 	@Test
-	public void testBuildMedCatalog() {
+	public void testBuildMedCatalog() throws MedProductException{
 
 		Medicine med1 = new Medicine();
 		med1.setMedProdactId("m1");
@@ -65,7 +66,7 @@ public class MedProductDomBuilderTest {
 		expected.add(med1);
 		expected.add(med2);
 
-		domBuilder.buildMedCatalog("src\\test\\resources\\testData\\medicinsTest.xml");
+		domBuilder.buildMedCatalog("src\\test\\resources\\testData\\medCatalogTest.xml");
 		Set<MedProduct> actual = domBuilder.getMedCatalog();
 
 		Assert.assertEquals(actual, expected);

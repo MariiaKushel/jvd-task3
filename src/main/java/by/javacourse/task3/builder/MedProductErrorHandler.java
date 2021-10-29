@@ -12,18 +12,16 @@ public class MedProductErrorHandler implements ErrorHandler{
 
 	public void warning(SAXParseException exception) throws SAXException {
 		logger.warn(exception.getLineNumber() + " : " + exception.getColumnNumber() +" - " + exception.getMessage());
-		//если добавить валидация проходить правильно
-		//throw new SAXException(exception); 
 	}
 
 	public void error(SAXParseException exception) throws SAXException {
 		logger.error(exception.getLineNumber() + " : " + exception.getColumnNumber() +" - " + exception.getMessage());
-		//throw new SAXException(exception);
+		//если добавить проброс исключения валидация проходить правильно
+		//throw exception;
 	}
 
 	public void fatalError(SAXParseException exception) throws SAXException {
 		logger.fatal(exception.getLineNumber() + " : " + exception.getColumnNumber() +" - " + exception.getMessage());
-		//throw new SAXException(exception);
 	}
 	
 }

@@ -22,6 +22,7 @@ import by.javacourse.task3.entity.GroupATC;
 import by.javacourse.task3.entity.Medicine;
 import by.javacourse.task3.entity.MedProduct;
 import by.javacourse.task3.entity.Pack;
+import by.javacourse.task3.exeption.MedProductException;
 
 public class MedProductDomBuilder extends AbstractMedProductBuilder {
 
@@ -41,7 +42,7 @@ public class MedProductDomBuilder extends AbstractMedProductBuilder {
 	}
 
 	@Override
-	public void buildMedCatalog(String xmlPath) {
+	public void buildMedCatalog(String xmlPath) throws MedProductException {
 		Document doc;
 
 		try {
@@ -66,8 +67,10 @@ public class MedProductDomBuilder extends AbstractMedProductBuilder {
 
 		} catch (SAXException e) {
 			logger.error("SAXException while building Set<MedProduct>");
+			throw new MedProductException (e);
 		} catch (IOException e) {
 			logger.error("IOException during work with files " + xmlPath);
+			throw new MedProductException (e);
 		}
 
 	}

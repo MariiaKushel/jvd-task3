@@ -9,6 +9,7 @@ import by.javacourse.task3.entity.GroupATC;
 import by.javacourse.task3.entity.Medicine;
 import by.javacourse.task3.entity.MedProduct;
 import by.javacourse.task3.entity.Pack;
+import by.javacourse.task3.exeption.MedProductException;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,7 +37,7 @@ public class MedProductStaxBuilder extends AbstractMedProductBuilder {
 	}
 
 	@Override
-	public void buildMedCatalog(String xmlPath) {
+	public void buildMedCatalog(String xmlPath) throws MedProductException {
 		XMLStreamReader reader;
 		String name;
 		try (FileInputStream inputStream = new FileInputStream(new File(xmlPath))) {
@@ -53,10 +54,13 @@ public class MedProductStaxBuilder extends AbstractMedProductBuilder {
 			}
 		} catch (FileNotFoundException e) {
 			logger.error("FileNotFoundException during work with file " + xmlPath);
+			throw new MedProductException (e);
 		} catch (XMLStreamException e) {
 			logger.error("XMLStreamException while building Set<MedProduct>");
+			throw new MedProductException (e);
 		} catch (IOException e) {
 			logger.error("IOException during work with file " + xmlPath);
+			throw new MedProductException (e);
 		}
 	}
 

@@ -11,6 +11,8 @@ import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
+import by.javacourse.task3.exeption.MedProductException;
+
 public class MedProductSaxBuilder extends AbstractMedProductBuilder {
 
 	static Logger logger = LogManager.getLogger();
@@ -34,13 +36,15 @@ public class MedProductSaxBuilder extends AbstractMedProductBuilder {
 	}
 
 	@Override
-	public void buildMedCatalog(String xmlPath) {
+	public void buildMedCatalog(String xmlPath) throws MedProductException {
 		try {
 			reader.parse(xmlPath);
 		} catch (IOException e) {
 			logger.error("IOException during work with files " + xmlPath);
+			throw new MedProductException (e);
 		} catch (SAXException e) {
 			logger.error("SAXException while building Set<MedProduct>");
+			throw new MedProductException (e);
 		}
 		medCatalog = handler.getMedCatalog();
 	}

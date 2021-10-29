@@ -9,7 +9,7 @@ public class XmlMedProductValidatorTest {
 
 	@Test
 	public void testValidateXmlPositive() throws MedProductException {
-		String xmlPath = "src\\test\\resources\\testData\\medicinsTest.xml";
+		String xmlPath = "src\\test\\resources\\testData\\medCatalogTest.xml";
 		String schemaPath = "src\\test\\resources\\testData\\schemaTest.xsd";
 
 		boolean condition = XmlMedProductValidator.validateXml(xmlPath, schemaPath);
@@ -19,7 +19,7 @@ public class XmlMedProductValidatorTest {
 
 	@Test(expectedExceptions = MedProductException.class)
 	public void testValidateXmlException() throws MedProductException {
-		String xmlPath = "src\\test\\resources\\testData\\medicinsTestN.xml";
+		String xmlPath = "src\\test\\resources\\testData\\medCatalogTestN.xml";
 		String schemaPath = "src\\test\\resources\\testData\\schemaTest.xsd";
 
 		XmlMedProductValidator.validateXml(xmlPath, schemaPath);
@@ -27,7 +27,7 @@ public class XmlMedProductValidatorTest {
 	
 	@Test
 	public void testValidateXmlFatal() throws MedProductException {
-		String xmlPath = "src\\test\\resources\\testData\\medicinsTestFatal.xml";
+		String xmlPath = "src\\test\\resources\\testData\\medCatalogTestFatal.xml";
 		String schemaPath = "src\\test\\resources\\testData\\schemaTest.xsd";
 
 		boolean condition = XmlMedProductValidator.validateXml(xmlPath, schemaPath);
@@ -37,7 +37,7 @@ public class XmlMedProductValidatorTest {
 	
 	@Test//тест валится
 	public void testValidateXmlError() throws MedProductException {
-		String xmlPath = "src\\test\\resources\\testData\\medicinsTestError.xml";
+		String xmlPath = "src\\test\\resources\\testData\\medCatalogTestError.xml";
 		String schemaPath = "src\\test\\resources\\testData\\schemaTest.xsd";
 
 		boolean condition = XmlMedProductValidator.validateXml(xmlPath, schemaPath);
