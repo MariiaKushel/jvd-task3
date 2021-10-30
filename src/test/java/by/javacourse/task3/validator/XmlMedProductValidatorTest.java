@@ -9,8 +9,10 @@ public class XmlMedProductValidatorTest {
 
 	@Test
 	public void testValidateXmlPositive() throws MedProductException {
-		String xmlPath = "src\\test\\resources\\testData\\medCatalogTest.xml";
-		String schemaPath = "src\\test\\resources\\testData\\schemaTest.xsd";
+		//String xmlPath = "src\\test\\resources\\testData\\medCatalogTest.xml";
+		//String schemaPath = "src\\test\\resources\\testData\\schemaTest.xsd";
+		String xmlPath = "src\\test\\resources\\testData\\medCatalogRun.xml";
+		String schemaPath = "src\\test\\resources\\testData\\schemaRun.xsd";
 
 		boolean condition = XmlMedProductValidator.validateXml(xmlPath, schemaPath);
 
@@ -35,7 +37,7 @@ public class XmlMedProductValidatorTest {
 		Assert.assertFalse(condition);
 	}
 	
-	@Test//тест валится
+	@Test
 	public void testValidateXmlError() throws MedProductException {
 		String xmlPath = "src\\test\\resources\\testData\\medCatalogTestError.xml";
 		String schemaPath = "src\\test\\resources\\testData\\schemaTest.xsd";

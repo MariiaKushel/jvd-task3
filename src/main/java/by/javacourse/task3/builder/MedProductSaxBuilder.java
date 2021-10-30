@@ -13,7 +13,7 @@ import org.xml.sax.XMLReader;
 
 import by.javacourse.task3.exeption.MedProductException;
 
-public class MedProductSaxBuilder extends AbstractMedProductBuilder {
+public class MedProductSaxBuilder extends MedProductBuilder {
 
 	static Logger logger = LogManager.getLogger();
 
@@ -41,10 +41,10 @@ public class MedProductSaxBuilder extends AbstractMedProductBuilder {
 			reader.parse(xmlPath);
 		} catch (IOException e) {
 			logger.error("IOException during work with files " + xmlPath);
-			throw new MedProductException (e);
+			throw new MedProductException ("IOException during work with files " + xmlPath, e);
 		} catch (SAXException e) {
 			logger.error("SAXException while building Set<MedProduct>");
-			throw new MedProductException (e);
+			throw new MedProductException ("SAXException while building Set<MedProduct>", e);
 		}
 		medCatalog = handler.getMedCatalog();
 	}

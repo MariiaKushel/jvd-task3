@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<c:med-catalog
-	xmlns:c="http://www.javacourse.by/med-product"
+<med-catalog
+	xmlns="http://www.javacourse.by/med-product"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.javacourse.by/med-product src/main/resourcec/data/schema.xsd ">
+	xsi:schemaLocation="http://www.javacourse.by/med-product schema.xsd ">
 
 	<medicine id="m1" >
 		<name>Ibuprofen</name>
@@ -38,7 +38,7 @@
 		<composition>Mentol Oil</composition>
 	</baa>
 	
-	<medicin out-of-prodaction="false" id="m3" >
+	<medicine out-of-prodaction="false" id="m3" >
 		<name>Noshpa</name>
 		<pharm>Pharm Company</pharm>
 		<group>group-m</group>
@@ -54,9 +54,9 @@
 		<code-cas>1235-67-8</code-cas>
 		<active-substance>obezbolin</active-substance>
 		<need-recipe>false</need-recipe>
-	</medicin>
+	</medicine>
 	
-	<medicin id="m4" >
+	<medicine id="m4" >
 		<name>Paracetomol</name>
 		<pharm>Pharm Company</pharm>
 		<group>group-m</group>
@@ -72,7 +72,7 @@
 		<code-cas>1235-67-8</code-cas>
 		<active-substance>obezbolin</active-substance>
 		<need-recipe>false</need-recipe>
-	</medicin>
+	</medicine>
 	
 	<baa id="m5">
 		<name>Romashka</name>
@@ -89,5 +89,196 @@
 		</version>
 		<composition>Romashka</composition>
 	</baa>
+	
+	<baa id="m6" out-of-prodaction="false">
+		<name>SlimPlus</name>
+		<pharm>ProdTorg</pharm>
+		<group>group-b</group>
+		<analogs>SlimSuperPlus Pohudin</analogs>
+		<version>
+			<country>Czech-Republic</country>
+			<certificate>18888.R89.RR63-7</certificate>
+			<data-from>2020-02</data-from>
+			<data-to>2021-02</data-to>
+			<pack>Capsule</pack>
+			<dosage>500mg</dosage>
+		</version>
+		<composition>B6 D sea-urchin-extract</composition>
+	</baa>
 
-</c:med-catalog>
+	<medicine id="m7">
+		<name>FustumGel</name>
+		<pharm>Med Company</pharm>
+		<group>group-m</group>
+		<analogs> </analogs>
+		<version>
+			<country>Russia</country>
+			<certificate>85-98-F25.8RE</certificate>
+			<data-from>2020-08</data-from>
+			<data-to>2024-08</data-to>
+			<pack>Gel</pack>
+			<dosage>200ml</dosage>
+		</version>
+		<code-cas>196635-67-7</code-cas>
+		<active-substance>pomogan</active-substance>
+		<need-recipe>false</need-recipe>
+	</medicine>
+	
+	<medicine id="m8">
+		<name>Fenobarbetal</name>
+		<pharm>Gowerment Med Company</pharm>
+		<group>group-v</group>
+		<analogs>Barbetal Uspocoin</analogs>
+		<version>
+			<country>Belarus</country>
+			<certificate>88777-456.456</certificate>
+			<data-from>2021-03</data-from>
+			<data-to>2023-03</data-to>
+			<pack>Solution-for-injection</pack>
+			<dosage>10ml</dosage>
+		</version>
+		<code-cas>22389-67-1</code-cas>
+		<active-substance>barbetanil</active-substance>
+		<need-recipe>true</need-recipe>
+	</medicine>
+	
+	<medicine out-of-prodaction="true" id="m9">
+		<name>Barbetal</name>
+		<pharm>Germany Med Company</pharm>
+		<group>group-v</group>
+		<analogs>Fenobarbetal Uspocoin</analogs>
+		<version>
+			<country>Germany</country>
+			<certificate>5658YT-58I-69.9</certificate>
+			<data-from>2020-04</data-from>
+			<data-to>2022-04</data-to>
+			<pack>Solution-for-injection</pack>
+			<dosage>10ml</dosage>
+		</version>
+		<code-cas>22389-67-1</code-cas>
+		<active-substance>barbetanil</active-substance>
+		<need-recipe>true</need-recipe>
+	</medicine>
+	
+	<medicine id="m10" out-of-prodaction="true">
+		<name>Nosivin</name>
+		<pharm>PMed Company</pharm>
+		<group>group-r</group>
+		<analogs>Nososol Sonosin Nos-lechin</analogs>
+		<version>
+			<country>Poland</country>
+			<certificate>5658/963P-3.9</certificate>
+			<data-from>2021-06</data-from>
+			<data-to>2023-06</data-to>
+			<pack>Aerosol</pack>
+			<dosage>100ml</dosage>
+		</version>
+		<code-cas>96523-67-3</code-cas>
+		<active-substance>solinozin</active-substance>
+		<need-recipe>false</need-recipe>
+	</medicine>
+
+	<baa id="m11" out-of-prodaction="false">
+		<name>Pohudin</name>
+		<pharm>IsMed</pharm>
+		<group>group-b</group>
+		<analogs>SlimSuperPlus SlimPlus</analogs>
+		<version>
+			<country>Israel</country>
+			<certificate>1879-963-63278/5</certificate>
+			<data-from>2020-02</data-from>
+			<data-to>2024-02</data-to>
+			<pack>Capsule</pack>
+			<dosage>500mg</dosage>
+		</version>
+		<composition>B6 D sea-urchin-extract</composition>
+	</baa>
+	
+	<baa id="m12" out-of-prodaction="true">
+		<name>SlimSuperPlus</name>
+		<pharm>IComProd</pharm>
+		<group>group-b</group>
+		<analogs>SlimPlus Pohudin</analogs>
+		<version>
+			<country>India</country>
+			<certificate>1/52/5598/5</certificate>
+			<data-from>2020-07</data-from>
+			<data-to>2024-07</data-to>
+			<pack>Capsule</pack>
+			<dosage>500mg</dosage>
+		</version>
+		<composition>B6 D sea-urchin-extract</composition>
+	</baa>
+
+	<medicine id="m13" out-of-prodaction="false">
+		<name>Activirivani ugol</name>
+		<pharm>PharmMed</pharm>
+		<group>group-a</group>
+		<analogs> </analogs>
+		<version>
+			<country>Belarus</country>
+			<certificate>565568/224.368</certificate>
+			<data-from>2021-08</data-from>
+			<data-to>2025-08</data-to>
+			<pack>Pill</pack>
+			<dosage>10ml</dosage>
+		</version>
+		<code-cas>886337-63-1</code-cas>
+		<active-substance>carbonin</active-substance>
+		<need-recipe>false</need-recipe>
+	</medicine>
+	
+		
+	<baa id="m14" out-of-prodaction="false">
+		<name>CogelPlus</name>
+		<pharm>IComProd</pharm>
+		<group>group-v</group>
+		<analogs>Uprug Torchin</analogs>
+		<version>
+			<country>India</country>
+			<certificate>586-632.DDR522</certificate>
+			<data-from>2020-07</data-from>
+			<data-to>2024-07</data-to>
+			<pack>Ointment</pack>
+			<dosage>50mg</dosage>
+		</version>
+		<composition>sea-urchin-extract oil honey</composition>
+	</baa>
+	
+	<medicine id="m15">
+		<name>Karvalol</name>
+		<pharm>PharmMed</pharm>
+		<group>group-c</group>
+		<analogs>Boayrashnic</analogs>
+		<version>
+			<country>Russia</country>
+			<certificate>565-87/69RR.6968</certificate>
+			<data-from>2021-09</data-from>
+			<data-to>2023-09</data-to>
+			<pack>Drop</pack>
+			<dosage>100ml</dosage>
+		</version>
+		<code-cas>887337-11-2</code-cas>
+		<active-substance>sininin</active-substance>
+		<need-recipe>false</need-recipe>
+	</medicine>
+	
+	<medicine id="m16">
+		<name>Mezim</name>
+		<pharm>RSDCom</pharm>
+		<group>group-a</group>
+		<analogs>Mezim-forte Festal</analogs>
+		<version>
+			<country>China</country>
+			<certificate>56774-12-368968</certificate>
+			<data-from>2021-01</data-from>
+			<data-to>2023-01</data-to>
+			<pack>Pill</pack>
+			<dosage>50ml</dosage>
+		</version>
+		<code-cas>88447-55-2</code-cas>
+		<active-substance>modulin</active-substance>
+		<need-recipe>false</need-recipe>
+	</medicine>
+
+</med-catalog>

@@ -6,15 +6,15 @@ import java.util.Set;
 import by.javacourse.task3.entity.MedProduct;
 import by.javacourse.task3.exeption.MedProductException;
 
-public abstract class AbstractMedProductBuilder {
+public abstract class MedProductBuilder {
 	
 	protected Set<MedProduct> medCatalog;
 	
-	public AbstractMedProductBuilder () {
+	public MedProductBuilder () {
 		medCatalog = new HashSet<MedProduct>();
 	}
 
-	public AbstractMedProductBuilder (Set<MedProduct> medCatalog) {
+	public MedProductBuilder (Set<MedProduct> medCatalog) {
 		this.medCatalog = medCatalog;
 	}
 

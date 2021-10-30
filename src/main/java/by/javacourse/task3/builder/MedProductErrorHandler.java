@@ -9,6 +9,7 @@ import org.xml.sax.SAXParseException;
 public class MedProductErrorHandler implements ErrorHandler{
 	
 	static Logger logger = LogManager.getLogger();
+	private boolean errorHappend = false;
 
 	public void warning(SAXParseException exception) throws SAXException {
 		logger.warn(exception.getLineNumber() + " : " + exception.getColumnNumber() +" - " + exception.getMessage());
@@ -16,12 +17,15 @@ public class MedProductErrorHandler implements ErrorHandler{
 
 	public void error(SAXParseException exception) throws SAXException {
 		logger.error(exception.getLineNumber() + " : " + exception.getColumnNumber() +" - " + exception.getMessage());
-		//если добавить проброс исключения валидация проходить правильно
-		//throw exception;
+		errorHappend = true;
 	}
 
 	public void fatalError(SAXParseException exception) throws SAXException {
 		logger.fatal(exception.getLineNumber() + " : " + exception.getColumnNumber() +" - " + exception.getMessage());
+	}
+
+	public boolean isErrorHappend() {
+		return errorHappend;
 	}
 	
 }

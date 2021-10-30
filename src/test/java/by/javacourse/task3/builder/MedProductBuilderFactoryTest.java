@@ -18,8 +18,8 @@ public class MedProductBuilderFactoryTest {
 	}
 
 	@Test(dataProvider = "providerBuilder")
-	public void testCreateBuiderPositive(String typeParser, Class<? extends AbstractMedProductBuilder> expected) throws MedProductException{
-		Class<? extends AbstractMedProductBuilder> actual = MedProductBuilderFactory.createBuider(typeParser).getClass();
+	public void testCreateBuiderPositive(String typeParser, Class<? extends MedProductBuilder> expected) throws MedProductException{
+		Class<? extends MedProductBuilder> actual = MedProductBuilderFactory.createBuider(typeParser).getClass();
 		Assert.assertEquals(actual, expected);
 	}
 	

@@ -66,12 +66,30 @@ public class MedProductDomBuilderTest {
 		expected.add(med1);
 		expected.add(med2);
 
-		domBuilder.buildMedCatalog("src\\test\\resources\\testData\\medCatalogTest.xml");
+		String xmlPath = "src\\test\\resources\\testData\\medCatalogTest.xml";
+	
+		domBuilder.buildMedCatalog(xmlPath);
 		Set<MedProduct> actual = domBuilder.getMedCatalog();
 
 		Assert.assertEquals(actual, expected);
 	}
 
+	@Test (expectedExceptions = MedProductException.class, expectedExceptionsMessageRegExp = "IOException.+")
+	public void testBuildMedCatalogIOException() throws MedProductException {
+		
+		String xmlPath = "src\\test\\resources\\testData\\medCatalogTestN.xml";
+		
+		domBuilder.buildMedCatalog(xmlPath);
+	}
+	
+	@Test (expectedExceptions = MedProductException.class, expectedExceptionsMessageRegExp = "SAXException.+")
+	public void testBuildMedCatalogSAXException() throws MedProductException {
+		
+		String xmlPath = "src\\test\\resources\\testData\\medCatalogTestFatal.xml";
+		
+		domBuilder.buildMedCatalog(xmlPath);
+	}
+	
 	@AfterTest
 	public void close() {
 		domBuilder = null;

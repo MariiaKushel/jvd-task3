@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://www.javacourse.by/med-product"
-	xmlns:c="http://www.javacourse.by/med-product">
+	xmlns:c="http://www.javacourse.by/med-product"
+	elementFormDefault="qualified">
 
 	<element name="med-product" type="c:med-product" abstract="true"></element>
 	<element name="medicine" type="c:medicine" substitutionGroup="c:med-product"></element>
@@ -86,7 +87,7 @@
 			<enumeration value="Belarus" />
 			<enumeration value="Belgium" />
 			<enumeration value="Russia" />
-			<enumeration value="Czech Republic" />
+			<enumeration value="Czech-Republic" />
 			<enumeration value="India" />
 			<enumeration value="Israel" />
 			<enumeration value="Poland" />
@@ -101,7 +102,7 @@
 			<enumeration value="Powder" />
 			<enumeration value="Ointment" />
 			<enumeration value="Gel" />
-			<enumeration value="Solution for injection" />
+			<enumeration value="Solution-for-injection" />
 			<enumeration value="Mixture" />
 			<enumeration value="Aerosol" />
 			<enumeration value="Drop" />

@@ -24,7 +24,7 @@ import by.javacourse.task3.entity.MedProduct;
 import by.javacourse.task3.entity.Pack;
 import by.javacourse.task3.exeption.MedProductException;
 
-public class MedProductDomBuilder extends AbstractMedProductBuilder {
+public class MedProductDomBuilder extends MedProductBuilder {
 
 	static Logger logger = LogManager.getLogger();
 
@@ -65,13 +65,13 @@ public class MedProductDomBuilder extends AbstractMedProductBuilder {
 				medCatalog.add(newMedicins);
 			}
 
-		} catch (SAXException e) {
-			logger.error("SAXException while building Set<MedProduct>");
-			throw new MedProductException (e);
 		} catch (IOException e) {
 			logger.error("IOException during work with files " + xmlPath);
-			throw new MedProductException (e);
-		}
+			throw new MedProductException ("IOException during work with files " + xmlPath, e);
+		} catch (SAXException e) {
+			logger.error("SAXException while building Set<MedProduct>");
+			throw new MedProductException ("SAXException while building Set<MedProduct>", e);
+		} 
 
 	}
 

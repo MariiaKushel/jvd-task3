@@ -12,6 +12,7 @@ import javax.xml.validation.Validator;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 
 import by.javacourse.task3.builder.MedProductErrorHandler;
@@ -42,9 +43,15 @@ public class XmlMedProductValidator {
 			Schema schema = factory.newSchema(schemaLocation);
 			Validator validator = schema.newValidator();
 			Source source = new StreamSource(xmlPath);
+			MedProductErrorHandler errorHandler = new MedProductErrorHandler();
 
-			validator.setErrorHandler(new MedProductErrorHandler());
+			validator.setErrorHandler(errorHandler);
 			validator.validate(source);
+			
+			if(errorHandler.isErrorHappend()) {
+				logger.info("Xml file " + xmlPath + " is not valid.");
+				return false;
+			}
 
 		} catch (IOException ioEx) {
 			logger.info("IO exception during work with files " + xmlPath + "; " + schemaPath);

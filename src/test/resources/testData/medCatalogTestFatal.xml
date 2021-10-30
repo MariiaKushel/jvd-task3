@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<c:med-catalog
-	xmlns:c="http://www.javacourse.by/med-product/test"
+<med-catalog
+	xmlns="http://www.javacourse.by/med-product/test"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.javacourse.by/med-product src/test/resources/testData/schema.xsd ">
+	xsi:schemaLocation="http://www.javacourse.by/med-product src/test/resources/testData/schemaTest.xsd ">
 
-	<c:medicine id="m1" >
+	<medicine id="m1" >
 		<name>Ibuprofen</name>
 		<pharm>Med Company</pharm
 		<group>group-m</group>
@@ -20,9 +20,9 @@
 		<code-cas>1235-67-8</code-cas>
 		<active-substance>obezbolin</active-substance>
 		<need-recipe>false</need-recipe>
-	</c:medicine>
+	</medicine>
 
-	<c:baa id="m2" out-of-prodaction="true">
+	<baa id="m2" out-of-prodaction="true">
 		<name>Health helper</name>
 		<pharm>Other Med Company</pharm>
 		<group>group-a</group>
@@ -36,6 +36,6 @@
 			<dosage>100ml</dosage>
 		</version>
 		<composition>Mentol Oil</composition>
-	</c:baa>
+	</baa>
 
-</c:med-catalog>
+</med-catalog>

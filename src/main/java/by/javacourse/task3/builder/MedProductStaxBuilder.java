@@ -23,7 +23,7 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-public class MedProductStaxBuilder extends AbstractMedProductBuilder {
+public class MedProductStaxBuilder extends MedProductBuilder {
 	
 	static Logger logger = LogManager.getLogger();
 
@@ -48,20 +48,21 @@ public class MedProductStaxBuilder extends AbstractMedProductBuilder {
 					name = reader.getLocalName();
 					if (name.equals(MedProductXmlTag.MEDICINE.toString()) || name.equals(MedProductXmlTag.BAA.toString())) {
 						MedProduct medProduct = buildMedProduct(reader);
+						logger.info("add to catalog" + medProduct);
 						medCatalog.add(medProduct);
 					}
 				}
 			}
 		} catch (FileNotFoundException e) {
-			logger.error("FileNotFoundException during work with file " + xmlPath);
-			throw new MedProductException (e);
-		} catch (XMLStreamException e) {
-			logger.error("XMLStreamException while building Set<MedProduct>");
-			throw new MedProductException (e);
+			logger.error("FileNotFoundException during work with file" + xmlPath);
+			throw new MedProductException ("FileNotFoundException during work with file " + xmlPath, e);
 		} catch (IOException e) {
 			logger.error("IOException during work with file " + xmlPath);
-			throw new MedProductException (e);
-		}
+			throw new MedProductException ("IOException during work with file " + xmlPath, e);
+		} catch (XMLStreamException e) {
+			logger.error("XMLStreamException while building Set<MedProduct>");
+			throw new MedProductException ("XMLStreamException while building Set<MedProduct>", e);
+			}
 	}
 
 	private MedProduct buildMedProduct(XMLStreamReader reader) throws XMLStreamException {

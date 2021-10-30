@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://www.javacourse.by/med-product/test"
-	xmlns:c="http://www.javacourse.by/med-product/test">
+	xmlns:c="http://www.javacourse.by/med-product/test"
+	elementFormDefault="qualified">
 
 	<element name="med-product" type="c:med-product" abstract="true"></element>
 	<element name="medicine" type="c:medicine" substitutionGroup="c:med-product"></element>

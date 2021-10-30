@@ -19,7 +19,7 @@ public class MedProductBuilderFactory {
 
 	}
 
-	public static AbstractMedProductBuilder createBuider(String typeParser) throws MedProductException {
+	public static MedProductBuilder createBuider(String typeParser) throws MedProductException {
 
 		EnumSet<TypeParser> types = EnumSet.allOf(TypeParser.class);
 		if (!types.contains(typeParser.toUpperCase())) {
@@ -27,7 +27,7 @@ public class MedProductBuilderFactory {
 		}
 
 		TypeParser type = TypeParser.valueOf(typeParser.toUpperCase());
-		AbstractMedProductBuilder currentBuilder = null;
+		MedProductBuilder currentBuilder = null;
 
 		switch (type) {
 		case SAX -> currentBuilder = new MedProductSaxBuilder();

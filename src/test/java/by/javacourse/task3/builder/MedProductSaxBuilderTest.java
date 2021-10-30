@@ -28,7 +28,7 @@ public class MedProductSaxBuilderTest {
 	}
 
 	@Test
-	public void testBuildMedCatalog()  throws MedProductException {
+	public void testBuildMedCatalogPositive() throws MedProductException {
 
 		Medicine med1 = new Medicine();
 		med1.setMedProdactId("m1");
@@ -66,12 +66,31 @@ public class MedProductSaxBuilderTest {
 		expected.add(med1);
 		expected.add(med2);
 
-		saxBuilder.buildMedCatalog("src\\test\\resources\\testData\\medCatalogTest.xml");
+		String xmlPath = "src\\test\\resources\\testData\\medCatalogTest.xml";
+		
+		saxBuilder.buildMedCatalog(xmlPath);
 		Set<MedProduct> actual = saxBuilder.getMedCatalog();
 
 		Assert.assertEquals(actual, expected);
 	}
+	
 
+	@Test (expectedExceptions = MedProductException.class, expectedExceptionsMessageRegExp = "IOException.+")
+	public void testBuildMedCatalogIOException() throws MedProductException {
+		
+		String xmlPath = "src\\test\\resources\\testData\\medCatalogTestN.xml";
+		
+		saxBuilder.buildMedCatalog(xmlPath);
+	}
+	
+	@Test (expectedExceptions = MedProductException.class, expectedExceptionsMessageRegExp = "SAXException.+")
+	public void testBuildMedCatalogSAXException() throws MedProductException {
+		
+		String xmlPath = "src\\test\\resources\\testData\\medCatalogTestFatal.xml";
+		
+		saxBuilder.buildMedCatalog(xmlPath);
+	}
+	
 	@AfterTest
 	public void close() {
 		saxBuilder = null;

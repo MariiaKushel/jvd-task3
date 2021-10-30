@@ -28,7 +28,7 @@ public class MedProductStaxBuilderTest {
 	}
 
 	@Test
-	public void testBuildMedCatalog() throws MedProductException{
+	public void testBuildMedCatalogPositive() throws MedProductException{
 
 		Medicine med1 = new Medicine();
 		med1.setMedProdactId("m1");
@@ -66,10 +66,28 @@ public class MedProductStaxBuilderTest {
 		expected.add(med1);
 		expected.add(med2);
 
-		staxBuilder.buildMedCatalog("src\\test\\resources\\testData\\medCatalogTest.xml");
+		String xmlPath = "src\\test\\resources\\testData\\medCatalogTest.xml";
+		
+		staxBuilder.buildMedCatalog(xmlPath);
 		Set<MedProduct> actual = staxBuilder.getMedCatalog();
 
 		Assert.assertEquals(actual, expected);
+	}
+	
+	@Test (expectedExceptions = MedProductException.class, expectedExceptionsMessageRegExp = "FileNotFoundException.+")
+	public void testBuildMedCatalogFileNotFoundException() throws MedProductException {
+		
+		String xmlPath = "src\\test\\resources\\testData\\medCatalogTestN.xml";
+		
+		staxBuilder.buildMedCatalog(xmlPath);
+	}
+	
+	@Test (expectedExceptions = MedProductException.class, expectedExceptionsMessageRegExp = "XMLStreamException.+")
+	public void testBuildMedCatalogXMLStreamException() throws MedProductException {
+		
+		String xmlPath = "src\\test\\resources\\testData\\medCatalogTestFatal.xml";
+		
+		staxBuilder.buildMedCatalog(xmlPath);
 	}
 	
 	@AfterTest
