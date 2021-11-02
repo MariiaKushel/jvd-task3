@@ -81,8 +81,6 @@ public class MedProductDomBuilder extends MedProductBuilder {
 				? new Medicine()
 				: new Baa();
 
-		// add null check
-
 		String content;
 
 		content = MedProductElement.getAttribute(MedProductXmlAttribute.ID.toString());
